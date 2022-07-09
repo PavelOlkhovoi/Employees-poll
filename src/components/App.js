@@ -1,7 +1,7 @@
 import '../App.css';
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
-import initialData from '../actions/share';
+import initialData from '../actions/shared';
 
 function App(props) {
   useEffect(()=> {

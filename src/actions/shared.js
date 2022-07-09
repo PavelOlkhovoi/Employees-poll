@@ -2,10 +2,10 @@ import { _getUsers as getUsers, _getQuestions as getQuestions } from '../utils/_
 import receiveUsers from './users'
 
 const initialData = () => {
+    console.log('start')
     return (dispatch) => {
-        return async () => {
-            const users = await getUsers();
-            console.log(users)
+        return () => {
+            getUsers().then( users => dispatch(receiveUsers(users))) 
         }
     }
 }
