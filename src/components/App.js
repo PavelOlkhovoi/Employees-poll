@@ -1,6 +1,14 @@
 import '../App.css';
+import { connect } from 'react-redux';
+import { useEffect } from 'react';
+import initialData from '../actions/share';
 
-function App() {
+function App(props) {
+  useEffect(()=> {
+    initialData()()()
+  })
+
+  console.log(props)
   return (
     <div className="App">
       <header className="App-header">
@@ -17,4 +25,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (users) => {
+  return {
+    users
+  }
+}
+
+export default connect(mapStateToProps)(App);
