@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 const NavMenu = ()=> {
     return (
         <header className="container">
             <nav>
-                <span>Home</span>
+                <Link to="/">Home</Link>
                 <span>Leaderboard</span>
                 <span>UserName</span>
-                <button className="btn">Logout</button>
+                <Link className="btn" to="auth">Logout</Link>
                 <hr/>
             </nav>
         </header>
