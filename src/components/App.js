@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import { useEffect } from 'react';
 import initialData from '../actions/shared';
 
-function App(props) {
+function App({dispatch, users, questions}) {
   useEffect(()=> {
-    initialData()()()
-  })
+    dispatch(initialData())
+  }, [])
 
-  console.log(props)
   return (
     <div className="App">
       <header className="App-header">
@@ -25,9 +24,10 @@ function App(props) {
   );
 }
 
-const mapStateToProps = (users) => {
+const mapStateToProps = (state) => {
   return {
-    users
+    users: state.users,
+    questions: state.questions
   }
 }
 

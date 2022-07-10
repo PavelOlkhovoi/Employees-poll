@@ -1,9 +1,9 @@
-import { RECEIVE_USERS } from "../actions/users";
+import { RECEIVES_USER } from "../actions/users";
 
 const usersReducer = (state = {}, action) => {
     switch (action.type) {
-        case RECEIVE_USERS:
-            return {...state, users: action.uses}
+        case RECEIVES_USER:
+            return {...state, ...action.users}
         default:
             return state    
     }

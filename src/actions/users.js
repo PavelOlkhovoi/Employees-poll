@@ -1,8 +1,6 @@
-export const RECEIVE_USERS = "RECEIVE_USERS"
+export const RECEIVES_USER = 'RECEIVES_USER'
 
-const receiveUsers = (users) => ({
-    type: RECEIVE_USERS,
+export const recieveUsers = (users) => ({
+    type: RECEIVES_USER,
     users,
 })
-
-export default receiveUsers;
