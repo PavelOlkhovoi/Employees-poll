@@ -37,6 +37,10 @@
   align-items: center;
 }
 
+.notice {
+  text-align: center;
+}
+
 
 @keyframes App-logo-spin {
   from {

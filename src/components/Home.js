@@ -1,9 +1,22 @@
-const Home = () => {
+import { connect } from "react-redux";
+import Polls from "./polls/Polls";
+
+const Home = ({authed}) => {
+
     return (
         <div className="container">
             <h1>Hi, users</h1>
+            {
+                authed.status !== null ? <Polls /> : null
+            }
         </div>
     )
 }
 
-export default Home;
+const mapStateToProps = ({authed}) => {
+    return {
+        authed
+    }
+}
+
+export default connect(mapStateToProps)(Home);

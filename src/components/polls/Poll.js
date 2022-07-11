@@ -1,9 +1,9 @@
-const Poll = () => {
+const Poll = ({id}) => {
     return (
         <div className="container">
-            <h1>Whta would your rathe</h1>
+            <h1>Whta would your rathe {id} </h1>
             <span className="info">You can answer only once</span>
-            <form>
+            {/* <form>
                 <div className="answer">
                     <label for="optionOne">Question One</label>
                     <input type="radiobutton" name="optionOne" id="optionOne" />
@@ -14,7 +14,7 @@ const Poll = () => {
                 </div>
                 <div className="error"></div>
                 <div className="btn">Submit</div>
-            </form>
+            </form>  */}
         </div>
     )
 }

@@ -24,7 +24,7 @@ function App({dispatch, users, questions, authed, loading}) {
       {
         authed.status === null ? 
         (
-          <div>
+          <div className='notice'>
           If you want to use this app go to do
           <Link to="/auth">Auth</Link>
           </div>
