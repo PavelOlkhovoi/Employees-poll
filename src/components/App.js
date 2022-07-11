@@ -7,18 +7,19 @@ import { Fragment } from 'react';
 import NavMenu from './NavMenu';
 import Authorization from './Authorization';
 import Home from './Home';
+import LoadingBar from 'react-redux-loading-bar'
 
 
-function App({dispatch, users, questions, authed}) {
+function App({dispatch, users, questions, authed, loading}) {
   const navigate = useNavigate()
   useEffect(()=> {
     dispatch(initialData())
   }, [])
-  console.log(authed)
   return (
     <Fragment>
       <div className="App">
         <NavMenu />
+        <LoadingBar />
       </div>
       {
         authed.status === null ? 
