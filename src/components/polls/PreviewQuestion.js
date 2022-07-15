@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const PreviewQuestion = ({question}) => {
     return (
-        <div>{question.author}</div>
+        <Link to={`/poll/${question.id}`}>{question.author}</Link>
     )
 }
 

@@ -1,8 +1,7 @@
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import PreviewQuestion from "./PreviewQuestion";
 import Poll from "./Poll";
-
 
 
 const Polls = ({ questionsIds, questions, answeredId, notAnsweredId }) => {

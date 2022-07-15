@@ -7,6 +7,7 @@ import { Fragment } from 'react';
 import NavMenu from './NavMenu';
 import Authorization from './Authorization';
 import Home from './Home';
+import Poll from './polls/Poll';
 import LoadingBar from 'react-redux-loading-bar'
 
 
@@ -29,10 +30,11 @@ function App({dispatch, users, questions, authed, loading}) {
           <Link to="/auth">Auth</Link>
           </div>
         ) :
-        ""
+        "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
       }
       <Routes>
-        <Route exact path='/' element={<Home />}/>
+        <Route path='/' exact element={<Home />} />
+        <Route path='/poll/:id' element={<Poll/>}/>
         <Route exact path='/auth' element={<Authorization />}/>
       </Routes>
     </Fragment>
