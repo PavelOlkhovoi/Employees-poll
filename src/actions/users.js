@@ -5,3 +5,10 @@ export const recieveUsers = (users) => ({
     type: RECEIVES_USER,
     users,
 })
+
+export const saveUserAnswer = (answer) => ({
+    type: SAVE_ANSWER_USER,
+    uid: answer.uid,
+    pollId: answer.pid,
+    answer,
+})

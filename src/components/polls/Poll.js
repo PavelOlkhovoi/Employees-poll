@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { connect } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { handleSaveAnswer } from "../../actions/shared";
 
 const withRouter = (Component) => {
     const ComponentWithRouterProp = (props) => {
@@ -14,17 +15,17 @@ const withRouter = (Component) => {
   };
 
 const Poll = ({poll, answerStatus, authed, dispatch}) => {
-     //*Parameters*: Object = authedUser | string, qid | string, and answer | string
+
     const [answer, setAnswer] = useState('')
-    const handleSaveAnswer = (e) => {
+    const handleAnswer = (e) => {
         e.preventDefault()
-        const answer = {
-            authedUser: authed,
-            qid: poll,
-            answer,
+        const answerData = {
+            uid: authed.status,
+            pid: poll.id,
+            option: answer
         }
-        // TODO: need action and reducer
-        // dispatch(saveAnswer())
+
+        dispatch(handleSaveAnswer(answerData))
     }
     console.log(answer)
     return (
@@ -32,7 +33,7 @@ const Poll = ({poll, answerStatus, authed, dispatch}) => {
             <span className="info">{poll.author}</span>
             <h1>what would you rather?</h1>
             <span className="info">You can answer only once</span>
-            <form>
+            <form onSubmit={handleAnswer} >
                 <fieldset disabled={answerStatus !== null ? true : false}  className="center-block">
                     <div className="answer">
                         <label htmlFor="optionOne">
@@ -53,7 +54,10 @@ const Poll = ({poll, answerStatus, authed, dispatch}) => {
                         />
                     </div>
                     <div className="error"></div>
-                    <button className="btn" onSubmit={handleAnswer}>Submit</button>
+                    <button className="btn" 
+                    disabled={answer === ""}>
+                        Submit
+                    </button>
                 </fieldset>
             </form> 
         </div>
