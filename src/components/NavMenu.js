@@ -7,7 +7,7 @@ const NavMenu = ()=> {
                 <Link to="/">Home</Link>
                 <span>Leaderboard</span>
                 <span>UserName</span>
-                <Link className="btn" to="auth">Logout</Link>
+                <Link className="btn" to="auth">Login</Link>
                 <Link className="btn" to="create">Create new poll</Link>
                 <hr/>
             </nav>

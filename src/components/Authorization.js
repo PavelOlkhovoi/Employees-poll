@@ -1,14 +1,19 @@
 import { useState } from "react"
 import { connect } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import { changeAuthedUser } from "../actions/authed"
 
 
 const Authorization = ({users, dispatch}) => {
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
+
     const navigate = useNavigate();
-    const testHandler = (e) => {
+    const location = useLocation()
+
+    const redirectBack = location.state?.from?.pathname || "/"
+
+    const formHandler = (e) => {
         e.preventDefault()
         for(let user in users){
             const u = users[user]
@@ -16,7 +21,7 @@ const Authorization = ({users, dispatch}) => {
                 dispatch(changeAuthedUser(user))
                 setName('')
                 setPassword('')
-                navigate("/")
+                navigate(redirectBack)
             }else {
                 console.log('Auth is wrong')
             }
@@ -40,7 +45,7 @@ const Authorization = ({users, dispatch}) => {
                     onChange={(e)=> setPassword(e.target.value)}/>
                 </div>
                 <div className="error"></div>
-                <button type="submit" onClick={testHandler} disabled={name === "" || password === ""}>Submut</button>
+                <button type="submit" onClick={formHandler} disabled={name === "" || password === ""}>Submut</button>
             </form>
         </div>
     )

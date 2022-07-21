@@ -10,6 +10,8 @@ import Home from './Home';
 import Poll from './polls/Poll';
 import CreatePoll from './polls/CreatePoll';
 import LoadingBar from 'react-redux-loading-bar'
+import WrongPath from './WrongPath';
+import Checkauth from './hoc/Checkauth';
 
 
 function App({dispatch, users, questions, authed, loading}) {
@@ -20,26 +22,27 @@ function App({dispatch, users, questions, authed, loading}) {
   return (
     <Fragment>
       <div className="App">
-        <NavMenu />
         <LoadingBar />
+        <NavMenu />
       </div>
-      {
-        authed.status === null ? 
-        (
-          // <div className='notice'>
-          // If you want to use this app go to do
-          // <Link to="/auth">Auth</Link>
-          // </div>
-          <Navigate to="/auth" />
-        ) :
-        "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
-      }
       <Routes>
-        <Route path='/' exact element={<Home />} />
-        <Route path='/poll/:id' element={<Poll/>}/>
-        <Route exact path='/auth' element={<Authorization />}/>
-        <Route exact path='/create' element={<CreatePoll />}/>
-        
+        <Route path='/' element={
+          <Checkauth>
+            <Home />
+          </Checkauth>
+        } />
+        <Route path='/poll/:id' element={
+          <Checkauth>
+            <Poll/>
+          </Checkauth>
+        }/>
+        <Route path='auth' element={<Authorization />}/>
+        <Route path='create' element={
+          <Checkauth>
+            <CreatePoll />
+          </Checkauth>
+        }/>
+        <Route path='*' element={<WrongPath />}/>
       </Routes>
     </Fragment>
   );
