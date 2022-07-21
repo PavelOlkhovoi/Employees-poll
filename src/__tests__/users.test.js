@@ -1,3 +1,4 @@
+import { ADD_POLL } from "../actions/questions"
 import { SAVE_ANSWER_USER, RECEIVES_USER } from "../actions/users"
 
 describe("Change the user state in the Redux store", () => {
@@ -47,12 +48,23 @@ describe("Change the user state in the Redux store", () => {
                         }
                     }
                 }
+            case ADD_POLL:
+                return {
+                    ...state,
+                    [action.uid]: {
+                        ...state[action.uid],
+                        questions: [
+                            ...state[action.uid].questions,
+                            action.pid
+                        ]
+                    }
+                }
             default:
                 return state    
         }
     }
 
-    it("Test Test", ()=> {
+    it("Add new answer to the user's object answer", ()=> {
         const responder = {
             type: SAVE_ANSWER_USER,
             uid: 'tylermcginnis',
@@ -64,7 +76,14 @@ describe("Change the user state in the Redux store", () => {
         expect(result[responder.uid].answers[responder.pollId]).toBe('optionTest')
 
     })
-    // it("Add new answer to the certan user", ()=> {
+    it("Add new poll to the certan user", ()=> {
+        const creater = {
+            type: ADD_POLL,
+            uid: 'tylermcginnis',
+            pid: '999',
+        }
 
-    // })
+        const result = usersReducer(users, creater)
+        expect(result[creater.uid].questions[2]).toBe('999')
+    })
 })

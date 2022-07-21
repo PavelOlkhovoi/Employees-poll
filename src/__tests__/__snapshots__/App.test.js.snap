@@ -29,6 +29,12 @@ Object {
             >
               Logout
             </a>
+            <a
+              class="btn"
+              href="/create"
+            >
+              Create new poll
+            </a>
             <hr />
           </nav>
         </header>
@@ -87,6 +93,12 @@ Object {
             href="/auth"
           >
             Logout
+          </a>
+          <a
+            class="btn"
+            href="/create"
+          >
+            Create new poll
           </a>
           <hr />
         </nav>

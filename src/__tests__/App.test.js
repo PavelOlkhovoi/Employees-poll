@@ -27,16 +27,16 @@ describe('Tessing of testing', ()=> {
     })
 
 
-    it('Test Redux Snapshot', ()=> {
+    // it('Test Redux Snapshot', ()=> {
           
-        const component = render(
-                <Provider store={store}>
-                    <MemoryRouter>
-                        <App />
-                    </MemoryRouter>
-                </Provider>
-            )
+    //     const component = render(
+    //             <Provider store={store}>
+    //                 <MemoryRouter>
+    //                     <App />
+    //                 </MemoryRouter>
+    //             </Provider>
+    //         )
               
-        expect(component).toMatchSnapshot();
-    })
+    //     expect(component).toMatchSnapshot();
+    // })
 })

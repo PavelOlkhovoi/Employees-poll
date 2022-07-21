@@ -1,4 +1,4 @@
-import { RECEIVE_QUESTIONS, SAVE_ANSWER_POLL } from "../actions/questions";
+import { RECEIVE_QUESTIONS, SAVE_ANSWER_POLL, ADD_POLL } from "../actions/questions";
 
 const questions = (state={}, action) => {
     switch (action.type) {
@@ -14,6 +14,12 @@ const questions = (state={}, action) => {
                         votes: [...state[action.pid][action.option].votes, action.uid]
                     }
                 }
+            }
+        case ADD_POLL:
+            return {
+                ...state,
+                [action.poll.id]: action.poll
+
             }
         default:
             return state

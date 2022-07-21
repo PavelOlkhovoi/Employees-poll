@@ -1,4 +1,4 @@
-import { RECEIVES_USER, SAVE_ANSWER_USER } from "../actions/users";
+import { RECEIVES_USER, SAVE_ANSWER_USER, ADD_USER_POLL } from "../actions/users";
 
 const usersReducer = (state = {}, action) => {
     switch (action.type) {
@@ -15,6 +15,17 @@ const usersReducer = (state = {}, action) => {
                         ...state[action.uid].answers,
                         [action.pollId]: action.answer
                     }
+                }
+            }
+        case ADD_USER_POLL:
+            return {
+                ...state,
+                [action.uid]: {
+                    ...state[action.uid],
+                    questions: [
+                        ...state[action.uid].questions,
+                        action.pid
+                    ]
                 }
             }
         default:
