@@ -11,7 +11,7 @@ const Checkauth = ({ children, authed }) => {
     console.log(authed)
 
     if(!authed){
-        return <Navigate to={'auth'} state={{from: fromPage}} />
+        return <Navigate to={'/auth'} state={{from: fromPage}} />
     }
 
     return (

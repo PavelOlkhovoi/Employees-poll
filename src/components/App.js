@@ -26,23 +26,25 @@ function App({dispatch, users, questions, authed, loading}) {
         <NavMenu />
       </div>
       <Routes>
-        <Route path='/' element={
-          <Checkauth>
-            <Home />
-          </Checkauth>
-        } />
-        <Route path='/poll/:id' element={
-          <Checkauth>
-            <Poll/>
-          </Checkauth>
-        }/>
-        <Route path='auth' element={<Authorization />}/>
-        <Route path='create' element={
-          <Checkauth>
-            <CreatePoll />
-          </Checkauth>
-        }/>
-        <Route path='*' element={<WrongPath />}/>
+        <Route path="/">
+          <Route index element={
+            <Checkauth>
+              <Home />
+            </Checkauth>
+          } />
+          <Route path='poll/:id' element={
+            <Checkauth>
+              <Poll/>
+            </Checkauth>
+          }/>
+          <Route path='auth' element={<Authorization />}/>
+          <Route path='create' element={
+            <Checkauth>
+              <CreatePoll />
+            </Checkauth>
+          }/>
+          <Route path='*' element={<WrongPath />}/>
+        </Route>
       </Routes>
     </Fragment>
   );
