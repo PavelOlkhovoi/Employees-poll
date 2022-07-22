@@ -11,7 +11,7 @@ const Authorization = ({users, dispatch}) => {
     const navigate = useNavigate();
     const location = useLocation()
 
-    const redirectBack = location.state?.from?.pathname || "/"
+    const redirectBack = location.state?.from || "/"
 
     const formHandler = (e) => {
         e.preventDefault()

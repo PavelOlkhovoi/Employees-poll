@@ -8,7 +8,7 @@ const Checkauth = ({ children, authed }) => {
 
     const fromPage = location.pathname
 
-    console.log(authed)
+    console.log(fromPage)
 
     if(!authed){
         return <Navigate to={'/auth'} state={{from: fromPage}} />
