@@ -11,9 +11,11 @@ import CreatePoll from './polls/CreatePoll';
 import WrongPath from './WrongPath';
 import Checkauth from './hoc/Checkauth';
 import Layout from './Layout';
+import Leaderboard from './Leaderboard';
 
 
 function App({dispatch, users, questions, authed, loading}) {
+  // http://localhost:3000/poll/loxhs1bqm25b708cmbf3g
   useEffect(()=> {
     dispatch(initialData())
   }, [])
@@ -37,6 +39,11 @@ function App({dispatch, users, questions, authed, loading}) {
           <Route path='create' element={
               <Checkauth>
                 <CreatePoll />
+              </Checkauth>
+          }/>
+          <Route path='leaderboard' element={
+              <Checkauth>
+                <Leaderboard />
               </Checkauth>
           }/>
           <Route path='*' element={<WrongPath />}/>

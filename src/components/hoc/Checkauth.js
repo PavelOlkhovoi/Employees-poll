@@ -4,11 +4,7 @@ import { connect } from "react-redux"
 
 const Checkauth = ({ children, authed }) => {
     const location = useLocation()
-    // Use data from Redux
-
     const fromPage = location.pathname
-
-    console.log(fromPage)
 
     if(!authed){
         return <Navigate to={'/auth'} state={{from: fromPage}} />
