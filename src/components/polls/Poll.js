@@ -14,9 +14,9 @@ const withRouter = (Component) => {
     return ComponentWithRouterProp;
   };
 
-const Poll = ({poll, answerStatus, authed, dispatch}) => {
-
+const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
     const [answer, setAnswer] = useState('')
+
     const handleAnswer = (e) => {
         e.preventDefault()
         const answerData = {
@@ -27,10 +27,11 @@ const Poll = ({poll, answerStatus, authed, dispatch}) => {
 
         dispatch(handleSaveAnswer(answerData))
     }
-    console.log(answer)
+
+
     return (
         <div className="container">
-            <span className="info">{poll.author}</span>
+            <span className="info">Autor: { poll.author === authed.status ? <span style={{color: "red"}}>"You"</span> : poll.author} </span>
             <h1>what would you rather?</h1>
             <span className="info">You can answer only once</span>
             <form onSubmit={handleAnswer} >
@@ -60,20 +61,71 @@ const Poll = ({poll, answerStatus, authed, dispatch}) => {
                     </button>
                 </fieldset>
             </form> 
+            <hr/>
+            <h2>Total answers {stats.total}</h2>
+            {/* First variant */}
+            <div className="poll-stat-left">
+                <h3>Variant one {stats.oneRes}</h3>
+                <ul>
+                {
+                    stats.oneRes !== 0  ?(
+                        stats.oneVotes.map( (user, index) => <li key={index}>{user}</li> )
+                    ) : (
+                        <span>Not answered yet</span>
+                    )
+                    
+                }
+                </ul>
+            </div>
+            {/* Second variant */}
+            <div className="poll-stat-left">
+                <h3>Variant one { stats.twoeRes }</h3>
+                <ul>
+                {
+                    stats.twoeRes !== 0 ? (
+                        stats.twoVotes.map( (user, index) => <li key={index}>{user}</li> )
+                    ) : (
+                        <span>Not answered yet</span>
+                    )
+                    
+                }
+                </ul>
+            </div>
         </div>
     )
 }
 
-const mapStateToProps = ({questions, authed, users }, props) => {
+const mapStateToProps = ({ questions, authed, users }, props) => {
     const {id} = props.router.params
     const poll = questions[id]
     const user = users[authed.status]
     const answerStatus = !user.answers[id] ? null : user.answers[id]
-    console.log(answerStatus)
+
+    const statistics = (poll) => {
+        const {optionOne, optionTwo} = poll
+
+        const oneRes = optionOne.votes.length
+        const twoRes = optionTwo.votes.length
+
+        return {
+            oneVotes: optionOne.votes,
+            twoVotes: optionTwo.votes,
+            oneRes,
+            twoRes,
+            total: oneRes + twoRes,
+            totalFn() {
+                return console.log("This", this)
+            }
+        }
+    }
+
+    const stats = statistics(poll)
+
     return {
         poll,
         answerStatus,
         authed,
+        stats
     }
 }
 

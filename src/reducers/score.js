@@ -1,15 +1,16 @@
-import { CALCULATE_SCORE } from "../actions/score";
+// import { CALCULATE_SCORE } from "../actions/score";
 
-const scoreReducer = (state = {}, action) => {
-    switch (action.type) {
-        case CALCULATE_SCORE:
-            return {
-                ...state,
-                ...action.score
-            }
+// // const scoreReducer = (state = {}, action) => {
+// //     switch (action.type) {
+// //         case CALCULATE_SCORE:
+// //             return {
+// //                 ...state,
+// //                 ...action.score
+// //             }
 
-        default: state
-    }
-}
+// //         default: state
+// //         return state
+// //     }
+// // }
 
-export default scoreReducer
+// // export default scoreReducer

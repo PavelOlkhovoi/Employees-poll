@@ -1,15 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
 
+const toggleActive = ({isActive}) => isActive ? "nav-link-active nav-link" : "nav-link"
+
 
 const NavMenu = ()=> {
     return (
         <header className="container">
             <nav>
-                <Link to="/" className="nav-link">Home</Link>
-                <NavLink to="leaderboard" className="nav-link">Leaderboard</NavLink>
+                <NavLink to="/" className={toggleActive}>Home</NavLink>
+                <NavLink to="leaderboard" className={toggleActive}>Leaderboard</NavLink>
                 <span className="nav-link">UserName</span>
-                <Link className="nav-link" to="auth">Login</Link>
-                <Link className="nav-link" to="create">Create new poll</Link>
+                <NavLink className={toggleActive} to="auth">Login</NavLink>
+                <NavLink className={toggleActive} to="create">Create new poll</NavLink>
                 <hr/>
             </nav>
         </header>

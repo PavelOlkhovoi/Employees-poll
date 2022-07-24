@@ -15,3 +15,7 @@ code {
 .nav-link {
   padding: 6px;
 }
+
+.nav-link-active {
+  color: red;
+}

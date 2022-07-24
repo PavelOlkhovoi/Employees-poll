@@ -22,8 +22,6 @@ const Authorization = ({users, dispatch}) => {
                 setName('')
                 setPassword('')
                 navigate(redirectBack)
-            }else {
-                console.log('Auth is wrong')
             }
         }
     }

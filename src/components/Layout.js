@@ -10,9 +10,8 @@ const Layout = () => {
             <NavMenu />
         </div>
         <div className="container">
-            <h1>Hier will appear a new component</h1>
+            <Outlet />
         </div>
-        <Outlet />
       </>
     )
 }
