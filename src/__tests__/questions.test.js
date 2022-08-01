@@ -1,7 +1,6 @@
 import { SAVE_ANSWER_POLL, RECEIVE_QUESTIONS, ADD_POLL } from "../actions/questions";
 import {_saveQuestionAnswer as saveAnswer} from '../utils/_DATA'
 
-console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPP", ADD_POLL)
 
 describe('The answer of certan poll should be send to API and will be saved in the databse.', ()=> {
     it('Send the answer without errors. Respond true', async ()=> {
