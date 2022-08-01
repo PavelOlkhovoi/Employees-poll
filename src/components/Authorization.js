@@ -17,7 +17,7 @@ const Authorization = ({users, dispatch}) => {
         e.preventDefault()
         for(let user in users){
             const u = users[user]
-            if(u.password === password && u.name === name ) {
+            if(u.password === password && u.id === name ) {
                 dispatch(changeAuthedUser(user))
                 setName('')
                 setPassword('')

@@ -16,7 +16,7 @@ const withRouter = (Component) => {
 
 const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
     const [answer, setAnswer] = useState('')
-
+    console.log(stats)
     const handleAnswer = (e) => {
         e.preventDefault()
         const answerData = {
@@ -65,7 +65,7 @@ const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
             <h2>Total answers {stats.total}</h2>
             {/* First variant */}
             <div className="poll-stat-left">
-                <h3>Variant one {stats.oneRes}</h3>
+                <h3>Variant one {stats.onePerce}%</h3>
                 <ul>
                 {
                     stats.oneRes !== 0  ?(
@@ -79,7 +79,7 @@ const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
             </div>
             {/* Second variant */}
             <div className="poll-stat-left">
-                <h3>Variant one { stats.twoeRes }</h3>
+                <h3>Variant two { stats.twoPerce }%</h3>
                 <ul>
                 {
                     stats.twoeRes !== 0 ? (
@@ -106,13 +106,18 @@ const mapStateToProps = ({ questions, authed, users }, props) => {
 
         const oneRes = optionOne.votes.length
         const twoRes = optionTwo.votes.length
+        const total = oneRes + twoRes
+        const onePerce = oneRes / total * 100 
+        const twoPerce = twoRes / total * 100 
 
         return {
             oneVotes: optionOne.votes,
             twoVotes: optionTwo.votes,
             oneRes,
+            onePerce,
+            twoPerce,
             twoRes,
-            total: oneRes + twoRes,
+            total,
             totalFn() {
                 return console.log("This", this)
             }
