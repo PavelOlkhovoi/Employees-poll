@@ -96,6 +96,7 @@ const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
 }
 
 const mapStateToProps = ({ questions, authed, users }, props) => {
+    console.log('Poll MapStateToProps')
     const {id} = props.router.params
     const poll = questions[id]
     const user = users[authed.status]
