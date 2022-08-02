@@ -2,6 +2,7 @@ import { useState } from "react"
 import { connect } from "react-redux"
 import { useNavigate, useLocation } from "react-router-dom"
 import { changeAuthedUser } from "../actions/authed"
+import Input from "./UI/inputs/Input"
 
 
 const Authorization = ({users, dispatch}) => {
@@ -12,6 +13,20 @@ const Authorization = ({users, dispatch}) => {
     const location = useLocation()
 
     const redirectBack = location.state?.from || "/"
+
+
+
+
+
+    // JUST FOR TEST
+    const showMessage = (e) => {
+        console.log('Show button')
+    }
+
+
+
+
+
 
     const formHandler = (e) => {
         e.preventDefault()
@@ -29,19 +44,27 @@ const Authorization = ({users, dispatch}) => {
         <div className="container">
             <h1>Please log in</h1>
             <form>
-                <div>
-                    <label htmlFor="name">Email</label>
-                    <input id="name" type="text" placeholder="Type your email" 
-                    value={name}
-                    onChange={(e)=>setName(e.target.value)}
-                    />
-                </div>
-                <div>
+                <Input
+                placeholder={"Type user name"}
+                onChange={(e)=>setName(e.target.value)}
+                name={'login'}
+                label={"Name"}
+                value={name}
+                />
+
+                <Input
+                placeholder={"Type your password"}
+                label={"Password"}
+                name="password"
+                value={password}
+                onChange={(e)=> setPassword(e.target.value)}
+                />
+                {/* <div>
                     <label htmlFor="password">Password</label>
                     <input id="password" name="password" type="text"
                     value={password}
                     onChange={(e)=> setPassword(e.target.value)}/>
-                </div>
+                </div> */}
                 <div className="error"></div>
                 <button type="submit" onClick={formHandler} disabled={name === "" || password === ""}>Submut</button>
             </form>

@@ -5,11 +5,41 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:  #F1F5F9;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h1 {
+  size: 40px; 
+}
+
+h2 {
+  size: 32px;
+}
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/*         MENU         */
+
+header {
+  padding: 30px 12px;
+  background-color: white;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .nav-link {
@@ -19,3 +49,4 @@ code {
 .nav-link-active {
   color: red;
 }
+
