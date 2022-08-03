@@ -2,6 +2,7 @@ import { useState } from "react"
 import { connect } from "react-redux"
 import { useNavigate, useLocation } from "react-router-dom"
 import { changeAuthedUser } from "../actions/authed"
+import Button from "./UI/buttons/Button"
 import Input from "./UI/inputs/Input"
 
 
@@ -59,14 +60,12 @@ const Authorization = ({users, dispatch}) => {
                 value={password}
                 onChange={(e)=> setPassword(e.target.value)}
                 />
-                {/* <div>
-                    <label htmlFor="password">Password</label>
-                    <input id="password" name="password" type="text"
-                    value={password}
-                    onChange={(e)=> setPassword(e.target.value)}/>
-                </div> */}
+
                 <div className="error"></div>
-                <button type="submit" onClick={formHandler} disabled={name === "" || password === ""}>Submut</button>
+                <Button type="submit" onClick={formHandler} disabled={name === "" || password === ""}
+                text={'Authorize'}
+                />
+                {/* <button type="submit" onClick={formHandler} disabled={name === "" || password === ""}>Submut</button> */}
             </form>
         </div>
     )

@@ -21,6 +21,10 @@ h2 {
   size: 32px;
 }
 
+form {
+  width: 100%;
+}
+
 
 
 code {
