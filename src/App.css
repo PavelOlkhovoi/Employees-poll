@@ -15,3 +15,46 @@
   justify-content: center;
   align-items: center;
 }
+
+/*         MENU         */
+
+header {
+  padding: 30px 12px;
+  background-color: white;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.menu-col {
+  flex-basis: 30%;
+}
+
+.menu-col__centre {
+  flex-grow: 1;
+  margin: 0 auto;
+  text-align: center;
+  flex-basis: 40%;
+}
+
+.menu-col__left {
+  margin-right: auto;
+  text-align: left;
+}
+
+.menu-col__right {
+  margin-right: auto;
+  text-align: right;
+}
+
+.nav-link {
+  padding: 6px;
+}
+
+.nav-link-active {
+  color: rgb(54, 232, 10);
+}

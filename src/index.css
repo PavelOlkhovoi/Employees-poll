@@ -32,25 +32,3 @@ code {
     monospace;
 }
 
-/*         MENU         */
-
-header {
-  padding: 30px 12px;
-  background-color: white;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.nav-link {
-  padding: 6px;
-}
-
-.nav-link-active {
-  color: red;
-}
-
