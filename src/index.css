@@ -13,6 +13,12 @@ a {
   color: black;
 }
 
+li {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+}
+
 h1 {
   size: 40px; 
 }

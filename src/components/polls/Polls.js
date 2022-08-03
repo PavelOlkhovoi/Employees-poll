@@ -4,16 +4,17 @@ import PreviewQuestion from "./PreviewQuestion";
 import Poll from "./Poll";
 
 
-const Polls = ({ questionsIds, questions, answeredId, notAnsweredId }) => {
+const Polls = ({ questions, answeredId, notAnsweredId }) => {
+    console.log(answeredId)
 
     return (
         <div className="container">
             <h1>List of polls</h1>
-            <h3>Answerd Polls</h3>
+            <h3>Answerd Polls { answeredId.length }</h3>
             {
                 answeredId.map(id => <li key={id}><PreviewQuestion question={questions[id]}/></li>)
             }
-            <h3>Unanswerd Polls</h3>
+            <h3>Unanswerd Polls {notAnsweredId.length}</h3>
             {
                 notAnsweredId.map(id => <li key={id}><PreviewQuestion question={questions[id]}/></li>)
             }
@@ -30,7 +31,7 @@ const mapStateToProps = ({ questions, users, authed }) => {
     let notAnsweredId = questionsIds.filter( key => !users[authed.status].answers[key]);
     let answeredId = questionsIds.filter( key => users[authed.status].answers[key]);
     return {
-        questionsIds,
+        // questionsIds,
         notAnsweredId,
         questions,
         answeredId,
