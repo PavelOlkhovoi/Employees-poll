@@ -13,18 +13,9 @@ const Authorization = ({users, dispatch}) => {
     const navigate = useNavigate();
     const location = useLocation()
 
+    const [status, setStatus] = useState('ok')
+
     const redirectBack = location.state?.from || "/"
-
-
-
-
-
-    // JUST FOR TEST
-    const showMessage = (e) => {
-        console.log('Show button')
-    }
-
-
 
 
 
@@ -38,6 +29,9 @@ const Authorization = ({users, dispatch}) => {
                 setName('')
                 setPassword('')
                 navigate(redirectBack)
+                setStatus('or')
+            }else {
+                setStatus('error')
             }
         }
     }
@@ -50,6 +44,7 @@ const Authorization = ({users, dispatch}) => {
                 onChange={(e)=>setName(e.target.value)}
                 name={'login'}
                 label={"Name"}
+                status={status}
                 value={name}
                 />
 
@@ -59,13 +54,13 @@ const Authorization = ({users, dispatch}) => {
                 name="password"
                 value={password}
                 onChange={(e)=> setPassword(e.target.value)}
+                status={status}
                 />
 
-                <div className="error"></div>
                 <Button type="submit" onClick={formHandler} disabled={name === "" || password === ""}
                 text={'Authorize'}
                 />
-                {/* <button type="submit" onClick={formHandler} disabled={name === "" || password === ""}>Submut</button> */}
+ 
             </form>
         </div>
     )

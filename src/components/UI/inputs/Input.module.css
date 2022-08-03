@@ -36,3 +36,7 @@ label {
     display: flex;
     flex-direction: column;
 }
+
+.input.error {
+    border: 2px solid red;
+}
