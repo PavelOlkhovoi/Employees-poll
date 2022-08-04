@@ -2,7 +2,7 @@ import cl from './Input.module.css'
 
 const Input = (props) => {
     const { type = 'text', placeholder = 'type smth', name = "name" , label = 'The label', status = 'ok',
-    ...otherProps} = props
+    mode = 'input', ...otherProps} = props
     const rootClasses = [cl.input]
 
     if(status === 'error'){
@@ -14,15 +14,29 @@ const Input = (props) => {
 
             <label htmlFor={name}>{label}</label>
 
-            <input 
-            {...otherProps} 
-            type={type} 
-            placeholder={placeholder}
-            name={name}
-            label={label}
-            status={status}
-            className={rootClasses.join(' ')}
-            />
+            {
+                mode === 'input'
+                ? <input 
+                {...otherProps} 
+                type={type} 
+                placeholder={placeholder}
+                name={name}
+                label={label}
+                status={status}
+                className={rootClasses.join(' ')}
+                />
+                : <textarea 
+                {...otherProps} 
+                type={type} 
+                placeholder={placeholder}
+                name={name}
+                label={label}
+                status={status}
+                className={rootClasses.join(' ')}
+                />
+
+
+            }
 
         </div>
     )

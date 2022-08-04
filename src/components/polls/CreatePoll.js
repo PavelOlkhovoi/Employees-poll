@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { handleAddPoll } from '../../actions/shared';
-
+import Input from '../UI/inputs/Input';
+import Button from '../UI/buttons/Button';
 
 const CreatePoll = ({ authed, dispatch, questions }) => {
     const [textOne, setTextOne] = useState('')
@@ -25,25 +26,34 @@ const CreatePoll = ({ authed, dispatch, questions }) => {
         <div className="container">
             <h1>Would you rather {textOne} or {textTwo} ?</h1>
             <form onSubmit={handlePoll}>
-                <div>
-                    <label htmlFor="optionOneText">Option 1</label>
-                    <textarea type="text" placeholder="Type the option 1" id="optionOneText" 
-                    value={textOne}
-                    onChange={(e)=> setTextOne(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="optionTwoText">Option 2</label>
-                    <textarea type="text" placeholder="Type the option 2" id="optionTwoText"
-                    value={textTwo}
-                    onChange={(e)=>setTextTwo(e.target.value)} 
-                    />
-                </div>
-                <button type="submit"
+
+                <Input 
+                type="text"
+                label="Option one"
+                mode={"textarea"}
+                placeholder="Type the option 1" 
+                name="optionOneText"
+                id="optionOneText"
+                value={textOne}
+                onChange={(e)=>setTextOne(e.target.value)}
+                />
+
+                <Input 
+                type="text"
+                label="Option two"
+                mode={"textarea"}
+                placeholder="Type the option 2" 
+                name="optionTwoText"
+                id="optionTwoText"
+                value={textTwo}
+                onChange={(e)=>setTextTwo(e.target.value)}
+                />
+
+                <Button type="submit"
                 disabled={textOne === '' || textTwo === ''}
                 >
                     Create
-                </button>
+                </Button>
             </form>
         </div>
     )

@@ -6,7 +6,7 @@ const PreviewQuestion = ({question}) => {
     return (
         <Link to={`/poll/${question.id}`}>
             <div className="poll-previes">
-                Would you rather {question.optionOne.text} or {question.optionOne.text} ?
+                Would you rather {question.optionOne.text} or {question.optionTwo.text} ?
                 <div className="poll-prev-author">Author: {' '}
                     <span className="poll-prev-author-name">
                         {question.author}
