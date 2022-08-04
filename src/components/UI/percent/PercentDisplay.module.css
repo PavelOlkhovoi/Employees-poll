@@ -1,0 +1,17 @@
+
+.cover {
+    background: grey;
+    width: 100%;
+    height: 8px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.indicator {
+    position: absolute;
+    background: yellow;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    height: 8px;
+}

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { handleSaveAnswer } from "../../actions/shared";
 import Button from "../UI/buttons/Button";
+import PercentDisplay from "../UI/percent/PercentDisplay";
 
 const withRouter = (Component) => {
     const ComponentWithRouterProp = (props) => {
@@ -69,6 +70,7 @@ const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
             {/* First variant */}
             <div className="poll-stat-left">
                 <h3>Variant one {Math.round(stats.onePerce)}%</h3>
+                <PercentDisplay percent={Math.round(stats.onePerce)} />
                 <ul>
                 {
                     stats.oneRes !== 0  ?(
@@ -83,6 +85,7 @@ const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
             {/* Second variant */}
             <div className="poll-stat-left">
                 <h3>Variant two { Math.round(stats.twoPerce)}%</h3>
+                <PercentDisplay percent={Math.round(stats.twoPerce)} />
                 <ul>
                 {
                     stats.twoeRes !== 0 ? (
