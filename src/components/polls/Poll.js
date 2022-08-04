@@ -2,6 +2,7 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { handleSaveAnswer } from "../../actions/shared";
+import Button from "../UI/buttons/Button";
 
 const withRouter = (Component) => {
     const ComponentWithRouterProp = (props) => {
@@ -16,7 +17,6 @@ const withRouter = (Component) => {
 
 const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
     const [answer, setAnswer] = useState('')
-    console.log(stats)
     const handleAnswer = (e) => {
         e.preventDefault()
         const answerData = {
@@ -31,22 +31,25 @@ const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
 
     return (
         <div className="container">
-            <span className="info">Autor: { poll.author === authed.status ? <span style={{color: "red"}}>"You"</span> : poll.author} </span>
-            <h1>what would you rather?</h1>
-            <span className="info">You can answer only once</span>
+            <span className="info-autor">Autor: 
+            <span className="info-autor-name">
+                { poll.author === authed.status ? <span style={{color: "red"}}> You</span> : " " + poll.author}</span> 
+            </span>
+            <h1>Would you rather?</h1>
+            <span className="info">* You can answer only once</span>
             <form onSubmit={handleAnswer} >
                 <fieldset disabled={answerStatus !== null ? true : false}  className="center-block">
                     <div className="answer">
-                        <label htmlFor="optionOne">
-                            Question One: {poll.optionOne.text}
+                        <label htmlFor="optionOne" className="poll-label">
+                            {poll.optionOne.text}
                         </label>
                         <input type="radio" name="option" id="optionOne" 
                         checked={answerStatus === "optionOne" ? true : null} 
                         onChange={(e)=> setAnswer('optionOne')}/>
                     </div>
                     <div className="answer">
-                        <label htmlFor="optionTwo">
-                            Option Two: {poll.optionTwo.text}
+                        <label htmlFor="optionTwo" className="poll-label">
+                            {poll.optionTwo.text}
                         </label>
                         <input type="radio" 
                         checked={answerStatus === "optionTwo" ? true : null} 
@@ -55,17 +58,17 @@ const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
                         />
                     </div>
                     <div className="error"></div>
-                    <button className="btn" 
+                    <Button
                     disabled={answer === ""}>
                         Submit
-                    </button>
+                    </Button>
                 </fieldset>
             </form> 
             <hr/>
             <h2>Total answers {stats.total}</h2>
             {/* First variant */}
             <div className="poll-stat-left">
-                <h3>Variant one {stats.onePerce}%</h3>
+                <h3>Variant one {Math.round(stats.onePerce)}%</h3>
                 <ul>
                 {
                     stats.oneRes !== 0  ?(
@@ -79,7 +82,7 @@ const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
             </div>
             {/* Second variant */}
             <div className="poll-stat-left">
-                <h3>Variant two { stats.twoPerce }%</h3>
+                <h3>Variant two { Math.round(stats.twoPerce)}%</h3>
                 <ul>
                 {
                     stats.twoeRes !== 0 ? (
@@ -96,7 +99,7 @@ const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
 }
 
 const mapStateToProps = ({ questions, authed, users }, props) => {
-    console.log('Poll MapStateToProps')
+
     const {id} = props.router.params
     const poll = questions[id]
     const user = users[authed.status]
