@@ -4,8 +4,7 @@ import Polls from "./polls/Polls";
 const Home = ({authed}) => {
 
     return (
-        <div className="container">
-            <h1>Hi, users</h1>
+        <div>
             {
                 authed.status !== null ? <Polls /> : null
             }

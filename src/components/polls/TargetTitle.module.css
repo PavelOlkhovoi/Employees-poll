@@ -1,0 +1,9 @@
+
+.title {
+    margin: 6px;
+    cursor: pointer;
+}
+
+.title.active {
+    color: blue;
+}
