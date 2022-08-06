@@ -109,7 +109,6 @@ nav {
 /*               POLL             */
 
 
-
 .answer {
   background: white;
   display: flex;
@@ -142,3 +141,58 @@ nav {
   color: blue;
   font-weight: 600;
 }
+
+
+/*             LEADERBOARD             */
+
+table {
+  text-align: left;
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+tr {
+  padding: 12px;
+}
+
+td {
+  padding: 12px;
+}
+
+th {
+  padding: 12px;
+}
+
+tr:nth-child(1)  {
+  background: blue;
+  color: wheat;
+  border-top-left-radius: 80px;
+}
+
+tr:first-child td:first-child { border-top-left-radius: 8px; }
+tr:first-child td:last-child { border-top-right-radius: 8px; }
+
+
+th:first-child {
+  padding: 12px;
+  border-top-left-radius: 8px;
+}
+
+
+th:last-child {
+  padding: 12px;
+  border-top-right-radius: 8px;
+}
+
+
+tr:nth-child(even)  {
+  background-color: #f2f2f2;
+}
+
+/* tr {
+  background: blue;
+  color: white;
+} */

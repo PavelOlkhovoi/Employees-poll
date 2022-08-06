@@ -13,10 +13,10 @@ const Leaderboard = ({scores}) => {
                 </tr>
             {
                 scores.map(user => <tr>
-                    <th>{user.name}</th>
-                    <th>{user.answers}</th>
-                    <th>{user.created}</th>
-                    <th>{user.total} </th>
+                    <td>{user.name}</td>
+                    <td>{user.answers}</td>
+                    <td>{user.created}</td>
+                    <td>{user.total} </td>
                 </tr>)
             }
             </table>
