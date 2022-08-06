@@ -3,7 +3,10 @@
 }
 
 .logo {
-  color: #61dafb;
+  color: blue;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
 .container {
