@@ -22,10 +22,12 @@ li {
 h1 {
   size: 40px;
   width: 400px;
+  text-align: center;
 }
 
 h2 {
   size: 32px;
+  text-align: center;
 }
 
 form {

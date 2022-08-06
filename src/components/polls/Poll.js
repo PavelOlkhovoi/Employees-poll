@@ -29,6 +29,10 @@ const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
         dispatch(handleSaveAnswer(answerData))
     }
 
+    const getColor = (a, b) => {
+        return a > b ? 'green' : 'yellow'
+    }
+
 
     return (
         <div className="container">
@@ -70,7 +74,7 @@ const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
             {/* First variant */}
             <div className="poll-stat-left">
                 <h3>Variant one {Math.round(stats.onePerce)}%</h3>
-                <PercentDisplay percent={Math.round(stats.onePerce)} />
+                <PercentDisplay percent={Math.round(stats.onePerce)} color={getColor(stats.onePerce, stats.twoPerce)}/>
                 <ul>
                 {
                     stats.oneRes !== 0  ?(
@@ -85,7 +89,7 @@ const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
             {/* Second variant */}
             <div className="poll-stat-left">
                 <h3>Variant two { Math.round(stats.twoPerce)}%</h3>
-                <PercentDisplay percent={Math.round(stats.twoPerce)} />
+                <PercentDisplay percent={Math.round(stats.twoPerce)} color={getColor(stats.twoPerce, stats.onePerce)} />
                 <ul>
                 {
                     stats.twoeRes !== 0 ? (
