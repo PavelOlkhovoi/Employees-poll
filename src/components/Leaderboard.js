@@ -5,27 +5,31 @@ const Leaderboard = ({scores}) => {
         <div className="container">
             <h1>Leaderboard</h1>
             <table>
+                <thead>
                 <tr>
                     <th>User name</th>
                     <th>Answered</th>
                     <th>Created</th>
                     <th>Total</th>
                 </tr>
+                </thead>
+                <tbody>
             {
-                scores.map(user => <tr>
+
+                scores.map(user => <tr key={user.id}>
                     <td>{user.name}</td>
                     <td>{user.answers}</td>
                     <td>{user.created}</td>
                     <td>{user.total} </td>
                 </tr>)
             }
+            </tbody>
             </table>
         </div>
     )
 }
 
 const mapStateToProps = ({users}) => {
-    console.log('LeaderBoard')
     const scores = Object.keys(users).map( id => {
         let userAnswer = Object.keys(users[id].answers)
         return { 
@@ -37,9 +41,6 @@ const mapStateToProps = ({users}) => {
         }
     }).sort((a, b) => b.total - a.total)
 
-
-
-    console.log(scores)
     return {
         scores
     }
