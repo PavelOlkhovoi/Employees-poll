@@ -1,12 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux/es/exports";
+import { logOutUser } from "../actions/authed";
 
 const toggleActive = ({isActive}) => isActive ? "nav-link-active nav-link" : "nav-link"
 
 
-const NavMenu = ({authed})=> {
+const NavMenu = ({authed, dispatch})=> {
     const user = authed.status
-    console.log(authed)
     return (
         <header>
             <nav>
@@ -25,7 +25,7 @@ const NavMenu = ({authed})=> {
                     {
                         user ? <>
                             <span className="nav-link nav-link-name">{user.trim()}</span>
-                            <span className="nav-link">Logout</span>
+                            <span className="nav-link" onClick={()=> dispatch(logOutUser())}>Logout</span>
                         </>
                         : <NavLink className={toggleActive} to="auth">Login</NavLink>
                     }
