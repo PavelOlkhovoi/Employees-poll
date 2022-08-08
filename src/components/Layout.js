@@ -1,19 +1,26 @@
 import { NavLink, Outlet } from "react-router-dom";
 import NavMenu from "./NavMenu";
 import LoadingBar from 'react-redux-loading-bar'
+import { connect } from "react-redux";
 
-const Layout = () => {
+const Layout = ({loading}) => {
     return (
         <>
         <div className="App">
-            <LoadingBar />
+        <LoadingBar />
             <NavMenu />
         </div>
-        <div className="container">
+       {loading ? null : (
+         <div className="container">
             <Outlet />
         </div>
+       )}
       </>
     )
 }
 
-export default Layout
+const mapStateToProps = ({questions}) => ({
+    loading: Object.keys(questions).length === 0
+})
+
+export default connect(mapStateToProps)(Layout)

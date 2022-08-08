@@ -44,7 +44,6 @@ export const handleSaveAnswer = (answer) => {
 }
 
 export const handleAddPoll = (poll) => {
-    console.log(poll)
     const dataToDB = {
         author: poll.author,
         optionOneText: poll.optionOneText,

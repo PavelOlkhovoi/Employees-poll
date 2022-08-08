@@ -14,7 +14,7 @@ import Layout from './Layout';
 import Leaderboard from './Leaderboard';
 
 
-function App({dispatch, users, questions, authed, loading}) {
+function App({dispatch}) {
   // http://localhost:3000/poll/loxhs1bqm25b708cmbf3g
   useEffect(()=> {
     dispatch(initialData())
