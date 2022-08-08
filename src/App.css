@@ -5,8 +5,8 @@
 .logo {
   color: blue;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-weight: 700;
 }
 
 .container {
@@ -52,14 +52,33 @@ nav {
 .menu-col__right {
   margin-right: auto;
   text-align: right;
+  display: flex;
 }
 
 .nav-link {
   padding: 6px;
 }
 
+
+.menu-col__right a:last-child {
+  margin-left: auto;
+}
+
+
+
 .nav-link-active {
   color: rgb(54, 232, 10);
+}
+
+.nav-link-name {
+  margin-left: 30px;
+  display: block;
+  max-width: 200px;
+  /* display: inline-block; */
+}
+
+.nav-link-name::first-letter {
+  text-transform: capitalize;
 }
 
 
@@ -194,8 +213,3 @@ th:last-child {
 tr:nth-child(even)  {
   background-color: #f2f2f2;
 }
-
-/* tr {
-  background: blue;
-  color: white;
-} */
