@@ -13,4 +13,5 @@ All the users can create their own polls. The application also  has a user ratin
 poll they answer or create. All results are 
 
 ## Usage
-You can clone the project, install all its dependencies and run it with 'npm start' command. 
+You can clone the project, install all its dependencies and run it with 'npm start' command.
+Use an existing user for authorization. The username is sarahedo, the password is password123.
