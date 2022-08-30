@@ -18,8 +18,6 @@ const Authorization = ({users, dispatch}) => {
     const redirectBack = location.state?.from || "/"
 
 
-
-
     const formHandler = (e) => {
         e.preventDefault()
         for(let user in users){

@@ -7,7 +7,6 @@ import {
 import { recieveUsers } from './users'
 import setAuthedUser from './authed'
 import receiveQuestions from './questions'
-// TODO: clean exports from questions actions
 import { saveAnswerToStore, addNewPoll } from './questions'
 import { saveUserAnswer, saveUserPoll } from './users'
 import { showLoading, hideLoading } from 'react-redux-loading-bar'

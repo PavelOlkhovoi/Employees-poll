@@ -1,3 +1,5 @@
+
+// The array of users from the Redux store
 let users = {
     sarahedo: {
       id: 'sarahedo',
@@ -45,14 +47,14 @@ let users = {
       },
       questions: [],
     }
-  }
+}
 
 
-  describe('Calculate scores all the users', () => {
-    it('The users Sarah Edo has 6 points and he is the leader', () => {
+  describe('Calculate scores for each user ', () => {
+    it('The user named Sarah Edo has 6 points and he is the leader', () => {
         const usersAll = Object.keys(users)
           
-        const personalResalts = (user) => {
+        const personalResults = (user) => {
             const created = Object.keys(user.answers).length
             const answerd = user.questions.length
                 const sum = created + answerd
@@ -66,7 +68,7 @@ let users = {
                     }
                 }
                 
-        const result = usersAll.map( id => personalResalts(users[id])).sort((a,b) => b.sum - a.sum)
+        const result = usersAll.map( id => personalResults(users[id])).sort((a,b) => b.sum - a.sum)
 
         expect(result[0].sum).toBe(6);
 

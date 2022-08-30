@@ -15,7 +15,6 @@ const Leaderboard = ({scores}) => {
                 </thead>
                 <tbody>
             {
-
                 scores.map(user => <tr key={user.id}>
                     <td>{user.name}</td>
                     <td>{user.answers}</td>

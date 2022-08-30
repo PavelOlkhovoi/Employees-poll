@@ -7,7 +7,7 @@ const Layout = ({loading}) => {
     return (
         <>
         <div className="App">
-        <LoadingBar />
+            <LoadingBar />
             <NavMenu />
         </div>
        {loading ? null : (

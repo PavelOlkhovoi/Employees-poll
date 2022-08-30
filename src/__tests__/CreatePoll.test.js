@@ -1,7 +1,7 @@
 import {_saveQuestion as saveQuestion} from "../utils/_DATA"
 
-describe('Add new poll by user', () => {
-    it('Send object with fields: `author`, `optionOneText`, and `optionTwoText` to DB without errors', async ()=> {
+describe('Save to database brend new poll', () => {
+    it('Send object with fields: `author`, `optionOneText`, and `optionTwoText` to DB and get the answer with the correct author', async ()=> {
 
         let object = {
             author: 'tylermcginnis',
@@ -10,7 +10,7 @@ describe('Add new poll by user', () => {
         }
 
         let result = await saveQuestion(object)
-        author: "tylermcginnis",
+
         expect(result.author).toBe('tylermcginnis')
     })
 })

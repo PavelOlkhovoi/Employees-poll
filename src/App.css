@@ -10,7 +10,7 @@
 }
 
 .container {
-  padding-top: 26px;
+  padding: 26px 0px;
   max-width: 500px;
   margin: 0 auto;
   display: flex;
@@ -176,6 +176,11 @@ nav {
   font-weight: 600;
 }
 
+.info-answer {
+  text-align: center;
+  margin: 12px auto;
+}
+
 
 /*             LEADERBOARD             */
 
@@ -200,14 +205,14 @@ th {
   padding: 12px;
 }
 
-tr:nth-child(1)  {
+thead {
   background: blue;
-  color: wheat;
-  border-top-left-radius: 80px;
+  color: white;
 }
 
-tr:first-child td:first-child { border-top-left-radius: 8px; }
-tr:first-child td:last-child { border-top-right-radius: 8px; }
+tr:nth-child(1)  {
+  border-top-left-radius: 80px;
+}
 
 
 th:first-child {

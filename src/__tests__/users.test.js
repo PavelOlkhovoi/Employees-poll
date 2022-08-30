@@ -1,8 +1,9 @@
 import { ADD_POLL } from "../actions/questions"
 import { SAVE_ANSWER_USER, RECEIVES_USER } from "../actions/users"
 
-describe("Change the user state in the Redux store", () => {
+describe("Test different actions which affect the user's part of the state", () => {
 
+    // The array of users from the Redux store
     let users = {
         sarahedo: {
           id: 'sarahedo',
@@ -30,7 +31,6 @@ describe("Change the user state in the Redux store", () => {
         }
       }
 
-    // Payload 1. Uid = user ID, 2 pollId, 3 = answer
     const usersReducer = (state = users, action) => {
         switch (action.type) {
             case RECEIVES_USER:
@@ -71,7 +71,8 @@ describe("Change the user state in the Redux store", () => {
             pollId: '999999999',
             answer: 'optionTest'
         }
-        const result = usersReducer(users, responder)
+        const result = usersReducer(users, 
+            )
 
         expect(result[responder.uid].answers[responder.pollId]).toBe('optionTest')
 

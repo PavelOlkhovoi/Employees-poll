@@ -33,6 +33,9 @@ const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
         return a > b ? 'green' : 'yellow'
     }
 
+    const convertToZero = (number) => {
+        return !Math.round(number) ? 0 : Math.round(number)
+    }
 
     return (
         <div className="container">
@@ -71,31 +74,31 @@ const Poll = ({poll, answerStatus, authed, dispatch, stats}) => {
             </form> 
             <hr/>
             <h2>Total answers {stats.total}</h2>
+
             {/* First variant */}
             <div className="poll-stat-left">
-                <h3>Variant one {Math.round(stats.onePerce)}%</h3>
+                <h3>Variant one {convertToZero(stats.onePerce)}%</h3>
                 <PercentDisplay percent={Math.round(stats.onePerce)} color={getColor(stats.onePerce, stats.twoPerce)}/>
                 <ul>
                 {
                     stats.oneRes !== 0  ?(
-                        stats.oneVotes.map( (user, index) => <li key={index}>{user}</li> )
+                        stats.oneVotes.map( (user, index) => <li key={index} className="info-answer">{user}</li> )
                     ) : (
-                        <span>Not answered yet</span>
+                        <li className="info-answer">Not answered yet</li>
                     )
-                    
                 }
                 </ul>
             </div>
             {/* Second variant */}
             <div className="poll-stat-left">
-                <h3>Variant two { Math.round(stats.twoPerce)}%</h3>
+                <h3>Variant two {convertToZero(stats.twoPerce)}%</h3>
                 <PercentDisplay percent={Math.round(stats.twoPerce)} color={getColor(stats.twoPerce, stats.onePerce)} />
                 <ul>
                 {
-                    stats.twoeRes !== 0 ? (
-                        stats.twoVotes.map( (user, index) => <li key={index}>{user}</li> )
+                    stats.twoRes !== 0 ? (
+                        stats.twoVotes.map( (user, index) => <li key={index} className="info-answer">{user}</li> )
                     ) : (
-                        <span>Not answered yet</span>
+                        <li className="info-answer">Not answered yet</li>
                     )
                     
                 }
@@ -125,13 +128,10 @@ const mapStateToProps = ({ questions, authed, users }, props) => {
             oneVotes: optionOne.votes,
             twoVotes: optionTwo.votes,
             oneRes,
+            twoRes,
             onePerce,
             twoPerce,
-            twoRes,
             total,
-            totalFn() {
-                return console.log("This", this)
-            }
         }
     }
 

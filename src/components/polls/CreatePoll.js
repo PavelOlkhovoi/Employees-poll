@@ -20,7 +20,7 @@ const CreatePoll = ({ authed, dispatch, questions }) => {
         dispatch(handleAddPoll(dataDB))
         setTextOne('')
         setTextTwo('')
-        // navigate('/')
+        navigate('/')
     }
     return (
         <div className="container">
